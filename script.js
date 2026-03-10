@@ -1,18 +1,38 @@
-// 音声読み込み
+// 音声ファイル
 
-const sounds = {
-correct: "audio/correct.mp3",
-wrong: "audio/wrong.mp3",
-hint: "audio/hint.mp3"
+const soundFiles = {
+correct:"audio/correct.mp3",
+wrong:"audio/wrong.mp3",
+hint:"audio/hint.mp3"
 }
+
+const sounds = {}
+
+// プリロード
+
+window.addEventListener("load",()=>{
+
+for(let key in soundFiles){
+
+const audio = new Audio(soundFiles[key])
+audio.preload="auto"
+
+sounds[key]=audio
+
+}
+
+})
+
+
+// 効果音再生（同時再生）
 
 function playSE(type){
 
-const audio = new Audio(sounds[type])
-audio.currentTime = 0
-audio.play().catch(err=>{
-console.log("再生エラー",err)
-})
+const audio = sounds[type].cloneNode()
+
+audio.currentTime=0
+
+audio.play()
 
 }
 
@@ -25,28 +45,30 @@ let timer = null
 
 function updateDisplay(){
 
-let m = Math.floor(time / 60)
-let s = time % 60
+let m = Math.floor(time/60)
+let s = time%60
 
-if(s < 10) s = "0"+s
+if(s<10)s="0"+s
 
-document.getElementById("time").innerText = m + ":" + s
+document.getElementById("time").innerText=m+":"+s
 
 }
 
 function startTimer(){
 
-if(timer) return
+if(timer)return
 
-timer = setInterval(()=>{
+timer=setInterval(()=>{
 
 time--
 
 updateDisplay()
 
-if(time <= 0){
+if(time<=0){
+
 clearInterval(timer)
-timer = null
+timer=null
+
 }
 
 },1000)
@@ -56,14 +78,16 @@ timer = null
 function stopTimer(){
 
 clearInterval(timer)
-timer = null
+timer=null
 
 }
 
 function resetTimer(){
 
 stopTimer()
-time = 900
+
+time=900
+
 updateDisplay()
 
 }
