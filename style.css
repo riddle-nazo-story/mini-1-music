@@ -76,3 +76,9 @@ background:#666;
 .timer button:nth-child(5){
 background:#999;
 }
+
+audio{
+width:100%;
+display:block;
+margin-top:10px;
+}
