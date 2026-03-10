@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
 <meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 <title>謎解きサンプラー</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<h1>謎解き公演 サンプラー</h1>
+<div class="container">
+
+<h1>謎解きサンプラー</h1>
 
 <section class="soundButtons">
 
@@ -18,26 +27,25 @@
 
 </section>
 
-
-<section class="bgmPlayer">
+<section>
 
 <h2>ゲーム中音声</h2>
-<audio id="gameAudio" controls>
-<source src="audio/game.mp3" type="audio/mp3">
+
+<audio id="gameAudio" controls preload="auto">
+<source src="audio/game.mp3" type="audio/mpeg">
 </audio>
 
 </section>
 
-
-<section class="endingPlayer">
+<section>
 
 <h2>エンディング音声</h2>
-<audio id="endingAudio" controls>
-<source src="audio/ending.mp3" type="audio/mp3">
+
+<audio id="endingAudio" controls preload="auto">
+<source src="audio/ending.mp3" type="audio/mpeg">
 </audio>
 
 </section>
-
 
 <section class="timer">
 
@@ -51,6 +59,7 @@
 
 </section>
 
+</div>
 
 <script src="script.js"></script>
 
