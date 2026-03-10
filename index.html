@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>謎解きサンプラー</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>謎解き公演 サンプラー</h1>
+
+<section class="soundButtons">
+
+<button onclick="playSE('correct')">正解</button>
+<button onclick="playSE('wrong')">不正解</button>
+<button onclick="playSE('hint')">ヒントを促す</button>
+
+</section>
+
+
+<section class="bgmPlayer">
+
+<h2>ゲーム中音声</h2>
+<audio id="gameAudio" controls>
+<source src="audio/game.mp3" type="audio/mp3">
+</audio>
+
+</section>
+
+
+<section class="endingPlayer">
+
+<h2>エンディング音声</h2>
+<audio id="endingAudio" controls>
+<source src="audio/ending.mp3" type="audio/mp3">
+</audio>
+
+</section>
+
+
+<section class="timer">
+
+<h2>15分タイマー</h2>
+
+<div id="time">15:00</div>
+
+<button onclick="startTimer()">スタート</button>
+<button onclick="stopTimer()">ストップ</button>
+<button onclick="resetTimer()">リセット</button>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
