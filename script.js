@@ -1,15 +1,18 @@
+// 音声読み込み
 
-// 効果音
 const sounds = {
-correct: new Audio("audio/correct.mp3"),
-wrong: new Audio("audio/wrong.mp3"),
-hint: new Audio("audio/hint.mp3")
+correct: "audio/correct.mp3",
+wrong: "audio/wrong.mp3",
+hint: "audio/hint.mp3"
 }
 
 function playSE(type){
 
-const sound = sounds[type].cloneNode()
-sound.play()
+const audio = new Audio(sounds[type])
+audio.currentTime = 0
+audio.play().catch(err=>{
+console.log("再生エラー",err)
+})
 
 }
 
