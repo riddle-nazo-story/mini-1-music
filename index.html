@@ -1,77 +1,56 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>謎解きサンプラー</title>
-
-<link rel="stylesheet" href="style.css">
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>謎解きサンプラー（WebAudio版）</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
 <div class="container">
+  <h1>謎解きサンプラー</h1>
 
-<h1>謎解きサンプラー</h1>
+  <!-- 初回に押してオーディオを有効化（モバイル制限対策） -->
+  <div id="unlockOverlay" class="overlay">
+    <button id="unlockBtn">タップして音声を有効化</button>
+    <p class="small">（この操作は1回必要です。完了後、音量スライダーがスマホで動作します）</p>
+  </div>
 
-<section class="soundButtons">
+  <section class="soundButtons">
+    <button id="btnCorrect" class="se-btn">正解</button>
+    <button id="btnWrong" class="se-btn">不正解</button>
+    <button id="btnHint" class="se-btn">ヒント</button>
+  </section>
 
-<button onclick="playSE('correct')">正解</button>
-<button onclick="playSE('wrong')">不正解</button>
-<button onclick="playSE('hint')">ヒント</button>
+  <section class="player">
+    <h2>ゲーム中音声（オープニング）</h2>
+    <audio id="gameAudio" controls src="audio/game.mp3" preload="none"></audio>
+    <label class="volLabel">音量</label>
+    <input id="gameVol" class="vol" type="range" min="0" max="1" step="0.01" value="1" />
+  </section>
 
-</section>
+  <section class="player">
+    <h2>エンディング音声</h2>
+    <audio id="endingAudio" controls src="audio/ending.mp3" preload="none"></audio>
+    <label class="volLabel">音量</label>
+    <input id="endingVol" class="vol" type="range" min="0" max="1" step="0.01" value="1" />
+  </section>
 
-<section>
+  <section class="timer">
+    <h2>15分タイマー</h2>
+    <div id="time">15:00</div>
+    <button id="startBtn">スタート</button>
+    <button id="stopBtn">ストップ</button>
+    <button id="resetBtn">リセット</button>
+  </section>
 
-<h2>ゲーム中音声</h2>
-
-<audio id="gameAudio" controls>
-<source src="audio/game.mp3" type="audio/mpeg">
-</audio>
-
-<label>音量</label>
-<input type="range" min="0" max="1" step="0.01" value="1"
-oninput="setVolume('gameAudio', this.value)">
-
-</section>
-
-<section>
-
-<h2>エンディング音声</h2>
-
-<audio id="endingAudio" controls>
-<source src="audio/ending.mp3" type="audio/mpeg">
-</audio>
-
-<label>音量</label>
-<input type="range" min="0" max="1" step="0.01" value="1"
-oninput="setVolume('endingAudio', this.value)">
-
-</section>
-
-<section class="timer">
-
-<h2>15分タイマー</h2>
-
-<div id="time">15:00</div>
-
-<button onclick="startTimer()">スタート</button>
-<button onclick="stopTimer()">ストップ</button>
-<button onclick="resetTimer()">リセット</button>
-
-</section>
-
+  <!-- 全停止ボタンを追加（公演で必須級） -->
+  <section>
+    <button id="stopAll" class="stop-all">全ての音を停止</button>
+  </section>
 </div>
 
 <script src="script.js"></script>
-
 </body>
-
 </html>
