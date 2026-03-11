@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>謎解きサンプラー（再構築版）</title>
+  <title>謎解きサンプラー（完全デバッグ版）</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,9 +11,9 @@
     <h1>謎解きサンプラー</h1>
 
     <!-- 初回タップでオーディオを有効化（モバイル必須） -->
-    <div id="unlockOverlay" class="overlay">
+    <div id="unlockOverlay" class="overlay" role="dialog" aria-modal="true">
       <button id="unlockBtn">タップして音声を有効化</button>
-      <p class="small">（初回に1回タップしてください。これで音量スライダー等が確実に動きます）</p>
+      <p class="small">（初回に1回タップしてください。以後、音量スライダー／再生が確実に動作します）</p>
     </div>
 
     <section class="soundButtons">
@@ -39,9 +39,9 @@
     <section class="timer">
       <h2>15分タイマー</h2>
       <div id="time">15:00</div>
-      <button id="startBtn">スタート</button>
-      <button id="stopBtn">ストップ</button>
-      <button id="resetBtn">リセット</button>
+      <button id="startBtn" class="timer-btn">スタート</button>
+      <button id="stopBtn" class="timer-btn">ストップ</button>
+      <button id="resetBtn" class="timer-btn">リセット</button>
     </section>
 
     <section class="controls">
@@ -49,7 +49,7 @@
       <button id="requestWake" class="wake-btn">画面スリープ防止をオン</button>
     </section>
 
-    <div class="footer small">audio フォルダに correct.mp3, wrong.mp3, hint.mp3, game.mp3, ending.mp3 を配置してください。</div>
+    <div class="footer small">audio フォルダに correct.mp3 / wrong.mp3 / hint.mp3 / game.mp3 / ending.mp3 を入れてください。</div>
   </div>
 
   <script src="script.js"></script>
