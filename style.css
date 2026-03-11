@@ -1,8 +1,11 @@
-/* スマホ最適・シンプル白基調 */
+/* style.css — スマホ最適、白基調 */
 *{box-sizing:border-box}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP",sans-serif;
-  background:#f6f7fb;margin:0;color:#222;padding:16px;
+  background:#f6f7fb;
+  margin:0;
+  color:#222;
+  padding:16px;
 }
 .container{max-width:640px;margin:0 auto}
 h1{text-align:center;margin:6px 0 16px;font-size:20px}
@@ -12,16 +15,23 @@ section{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px;box-s
 .player audio{width:100%;display:block;margin-top:8px}
 .vol{width:100%;margin-top:8px}
 .timer #time{text-align:center;font-size:48px;font-weight:700;margin:12px 0}
-.timer button{width:100%;padding:12px;margin:6px 0;font-size:16px;border-radius:10px;border:none;background:#2196f3;color:#fff}
+.timer .timer-btn{width:100%;padding:12px;margin:6px 0;font-size:16px;border-radius:10px;border:none;background:#2196f3;color:#fff}
 .controls{display:flex;flex-direction:column;gap:8px}
 .stop-all{background:#d32f2f;padding:12px;border-radius:10px;color:#fff;border:none;width:100%}
 .wake-btn{background:#6a1b9a;color:#fff;padding:12px;border-radius:10px;border:none;width:100%}
-.overlay{position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;z-index:9999}
+.overlay{
+  position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,0.5);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;z-index:99999;
+}
 .overlay button{padding:16px 22px;font-size:18px;border-radius:12px;border:none;background:#4caf50;color:#fff}
 .overlay .small{color:#fff;font-size:13px;margin:0;opacity:0.95;text-align:center;padding:0 20px}
 .small{font-size:12px;color:#666;margin-top:8px;text-align:center}
 
-/* レスポンシブ: 横幅が広いと並べる */
+/* debug/status UI adjustments (placed via JS) */
+#__audio_debug_box{font-family:monospace}
+#__audio_status{font-family:inherit}
+
+/* Responsive */
 @media(min-width:520px){
   .soundButtons{flex-direction:row}
   .se-btn{flex:1}
